@@ -59,6 +59,50 @@
     <UpgradeFiles Include="$(ProjectDir)bin\Release\net5.0\Oqtane.Upgrade.pdb" />
     <UpgradeFiles Include="$(ProjectDir)bin\Release\net5.0\Oqtane.Upgrade.runtimeconfig.json" />
     <TemplateFiles Include="$(ProjectDir)wwwroot\Modules\Templates\**\*.*" />
+    <TemplateFiles Remove="wwwroot\Modules\Templates\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\Modules\Templates\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Edit.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Index.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Interop.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\ModuleInfo.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Services\I[Module]Service.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Services\[Module]Service.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\Settings.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Client\_Imports.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Package\debug.cmd" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Package\release.cmd" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Package\[Owner].[Module].nuspec" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Controllers\[Module]Controller.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Manager\[Module]Manager.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Repository\I[Module]Repository.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Repository\[Module]Context.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Repository\[Module]Repository.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Scripts\[Owner].[Module].1.0.0.sql" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\Scripts\[Owner].[Module].Uninstall.sql" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\wwwroot\Modules\[Owner].[Module]\Module.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Server\wwwroot\Modules\[Owner].[Module]\Module.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\External\Shared\Models\[Module].cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Edit.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Index.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Interop.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\ModuleInfo.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Services\I[Module]Service.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Services\[Module]Service.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Client\Modules\[Owner].[Module]\Settings.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Controllers\[Module]Controller.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Manager\[Module]Manager.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Repository\I[Module]Repository.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Repository\[Module]Context.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Repository\[Module]Repository.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Scripts\[Owner].[Module].1.0.0.sql" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\Modules\[Owner].[Module]\Scripts\[Owner].[Module].Uninstall.sql" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\wwwroot\Modules\[Owner].[Module]\Module.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Server\wwwroot\Modules\[Owner].[Module]\Module.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\Modules\Templates\Internal\Oqtane.Shared\Modules\[Owner].[Module]\Models\[Module].cs" />
   </ItemGroup>
   <Target Name="AddPayloadsFolder" AfterTargets="Publish">
     <Copy SourceFiles="@(UpgradeFiles)" DestinationFiles="@(UpgradeFiles->'$(PublishDir)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
