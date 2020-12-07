@@ -43,6 +43,10 @@ namespace Oqtane.Shared
                 urlparameters = parameters.Split('?').First();
                 querystring = parameters.Replace(urlparameters + "?", "");
             }
+            else if (parameters.StartsWith("returnurl="))
+            {
+                querystring = parameters;
+            }
             else if (parameters.Contains('/'))
             {
                 urlparameters = parameters;
