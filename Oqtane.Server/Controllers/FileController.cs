@@ -433,8 +433,8 @@ namespace Oqtane.Controllers
         }
 
         // GET api/<controller>/download/5
-        [HttpGet("download/{id}")]
-        public IActionResult Download(int id)
+        [HttpGet("download/{id}/{mode?}")]
+        public IActionResult Download(int id,string mode = null)
         {
             var file = _files.GetFile(id);
             if (file != null)
@@ -444,7 +444,10 @@ namespace Oqtane.Controllers
                     var filepath = Path.Combine(GetFolderPath(file.Folder), file.Name);
                     if (System.IO.File.Exists(filepath))
                     {
-                        return PhysicalFile(filepath, file.Name.GetMimeType(), file.Name);
+                        var result = mode=="attach"
+                            ? PhysicalFile(filepath, file.Name.GetMimeType(), file.Name)
+                            : PhysicalFile(filepath, file.Name.GetMimeType());
+                        return result;
                     }
 
                     _logger.Log(LogLevel.Error, this, LogFunction.Read, "File Does Not Exist {FileId} {FilePath}", id, filepath);

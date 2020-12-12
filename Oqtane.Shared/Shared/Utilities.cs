@@ -99,10 +99,14 @@ namespace Oqtane.Shared
             return NavigateUrl(alias, path, parameters);
         }
 
-        public static string ContentUrl(Alias alias, int fileid)
+        public static string ContentUrl(Alias alias, int fileid, bool asAttachment = false)
         {
             string url = (alias == null) ? "/~" : "/" + alias.AliasId;
             url += Constants.ContentUrl + fileid.ToString();
+            if (asAttachment)
+            {
+                url += Constants.ContentDispositionAttachment;
+            }
             return url;
         }
 
