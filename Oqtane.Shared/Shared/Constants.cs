@@ -35,8 +35,13 @@ namespace Oqtane.Shared {
 
         public const string DefaultSiteTemplate = "Oqtane.SiteTemplates.DefaultSiteTemplate, Oqtane.Server";
 
+        [Obsolete]
         public const string ContentUrl = "/api/file/download/";
         public const string ContentDispositionAttachment = "/attach";
+
+        public const string ContentUrlBase = "/api/file/";
+        public const string ContentUrlInline = "inline/";
+        public const string ContentUrlAttachment = "attach/";
 
         [Obsolete("Use UserNames.Host instead.")]
         public const string HostUser = UserNames.Host;

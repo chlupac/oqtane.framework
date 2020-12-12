@@ -114,7 +114,12 @@ namespace Oqtane.Modules
             return Utilities.EditUrl(PageState.Alias.Path, path, moduleid, action, parameters);
         }
 
-        public string ContentUrl(int fileid, bool asAttachment = false)
+        public string ContentUrl(int fileid)
+        {
+            return ContentUrl(fileid, false);
+        }
+
+        public string ContentUrl(int fileid, bool asAttachment)
         {
             return Utilities.ContentUrl(PageState.Alias, fileid, asAttachment);
         }

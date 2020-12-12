@@ -43,10 +43,6 @@ namespace Oqtane.Shared
                 urlparameters = parameters.Split('?').First();
                 querystring = parameters.Replace(urlparameters + "?", "");
             }
-            else if (parameters.StartsWith("returnurl="))
-            {
-                querystring = parameters;
-            }
             else if (parameters.Contains('/'))
             {
                 urlparameters = parameters;
@@ -99,15 +95,17 @@ namespace Oqtane.Shared
             return NavigateUrl(alias, path, parameters);
         }
 
-        public static string ContentUrl(Alias alias, int fileid, bool asAttachment = false)
+        public static string ContentUrl(Alias alias, int fileId)
         {
-            string url = (alias == null) ? "/~" : "/" + alias.AliasId;
-            url += Constants.ContentUrl + fileid.ToString();
-            if (asAttachment)
-            {
-                url += Constants.ContentDispositionAttachment;
-            }
-            return url;
+            return ContentUrl(alias, fileId, false);
+        }
+
+        public static string ContentUrl(Alias alias, int fileId, bool asAttachment)
+        {
+            var  aliasUrl = (alias == null) ? "/~" : "/" + alias.AliasId;
+            var method = asAttachment ? Constants.ContentUrlAttachment : Constants.ContentUrlInline;
+
+            return $"{aliasUrl}{Constants.ContentUrlBase}{method}{fileId}";
         }
 
         public static string GetTypeName(string fullyqualifiedtypename)

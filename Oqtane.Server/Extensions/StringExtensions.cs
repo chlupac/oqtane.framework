@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.StaticFiles;
+using Oqtane.Models;
 
 namespace Oqtane.Extensions
 {
@@ -26,6 +27,11 @@ namespace Oqtane.Extensions
             }
 
             return contentType;
+        }
+
+        public static string GetMimeType(this File file)
+        {
+            return GetMimeType(file?.Name);
         }
     }
 }
