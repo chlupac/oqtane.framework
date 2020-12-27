@@ -162,14 +162,7 @@
         module.Permissions = _permissionGrid.GetPermissions();
         await ModuleService.UpdateModuleAsync(module);
 
-        if (_settingsModuleType != null)
-        {
-            var moduleType = Type.GetType(ModuleState.ModuleType);
-            if (moduleType != null)
-            {
-                moduleType.GetMethod("UpdateSettings")?.Invoke(_settings, null); // method must be public in settings component
-            }
-        }
+        _settings?.GetType().GetMethod("UpdateSettings")?.Invoke(_settings, null); // method must be public in settings component
 
         NavigationManager.NavigateTo(NavigateUrl());
     }
